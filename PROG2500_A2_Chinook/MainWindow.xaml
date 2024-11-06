@@ -49,6 +49,7 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
+       
 
         <!--Add a header after the menu-->
         <TextBlock DockPanel.Dock="Top" Text="Welcome to the Chinook Music Store!"
