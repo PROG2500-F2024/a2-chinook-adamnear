@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROG2500_A2_Chinook", "PROG2500_A2_Chinook\PROG2500_A2_Chinook.csproj", "{96782037-2A2C-4088-B7D8-FBFD18F96581}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96782037-2A2C-4088-B7D8-FBFD18F96581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96782037-2A2C-4088-B7D8-FBFD18F96581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96782037-2A2C-4088-B7D8-FBFD18F96581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96782037-2A2C-4088-B7D8-FBFD18F96581}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26CC5506-A7B3-462B-A1BC-3A24F99CEA7B}
+	EndGlobalSection
+EndGlobal

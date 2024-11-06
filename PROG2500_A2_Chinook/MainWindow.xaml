@@ -1,0 +1,78 @@
+﻿<Window x:Class="PROG2500_A2_Chinook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROG2500_A2_Chinook"
+        mc:Ignorable="d"
+        Title="Chinook Music Store" Height="650" Width="900">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="exitImage" UriSource="/images/exit.png"></BitmapImage>
+            <BitmapImage x:Key="homeImage" UriSource="/images/home.png"></BitmapImage>
+            <BitmapImage x:Key="artistsImage" UriSource="/images/artists.png"></BitmapImage>
+            <BitmapImage x:Key="albumsImage" UriSource="/images/albums.png"></BitmapImage>
+            <BitmapImage x:Key="tracksImage" UriSource="/images/tracks.png"></BitmapImage>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem x:Name="File" Header="_File">
+                <MenuItem x:Name="Exit" Header="_Exit" Click="Exit_Click">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource exitImage}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Pages">
+                <MenuItem x:Name="Home" Header="_Home" Click="HomeButton_Click">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource homeImage}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="Artists" Header="_Artists" Click="ArtistsButton_Click">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource artistsImage}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="Album" Header="_Album" Click="AlbumButton_Click">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource albumsImage}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="Tracks" Header="_Tracks" Click="TracksButton_Click">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource tracksImage}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <!--Add a header after the menu-->
+        <TextBlock DockPanel.Dock="Top" Text="Welcome to the Chinook Music Store!"
+               FontSize="24" FontWeight="Bold" TextAlignment="Center"
+               Margin="0,10,0,10" />
+
+        <ToolBar DockPanel.Dock="Left">
+            <StackPanel Orientation="Vertical" Width="50">
+                <Button x:Name="HomeButton" ToolTip="Go to Home" Click="HomeButton_Click">
+                    <Image Source="{StaticResource homeImage}"></Image>
+                </Button>
+                <Button x:Name="EmployeesButton" ToolTip="View Artists" Click="ArtistsButton_Click">
+                    <Image Source="{StaticResource artistsImage}"></Image>
+                </Button>
+                <Button x:Name="CustomersButton" ToolTip="View Albums" Click="AlbumButton_Click">
+                    <Image Source="{StaticResource albumsImage}"></Image>
+                </Button>
+                <Button x:Name="ProductsButton" ToolTip="View Tracks" Click="TracksButton_Click">
+                    <Image Source="{StaticResource tracksImage}"></Image>
+                </Button>
+            </StackPanel>
+        </ToolBar>
+
+        <Frame x:Name="MainFrame" DockPanel.Dock="Bottom" Width="auto" Height="auto" NavigationUIVisibility="Hidden" ></Frame>
+
+    </DockPanel>
+</Window>
