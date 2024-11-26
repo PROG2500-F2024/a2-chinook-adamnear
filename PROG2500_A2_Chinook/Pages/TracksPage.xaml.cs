@@ -37,5 +37,19 @@ namespace PROG2500_A2_Chinook.Pages
             // Set the viewsource data source to use the employees data collection (dbset)
             tracksViewSource.Source = context.Tracks.Local.ToObservableCollection();
         }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var searchTerm = SearchBox.Text.ToLower();
+
+        // Filter the tracks based on the search term
+        var filteredTracks = context.Tracks.Local
+            .Where(t => t.Name.ToLower().Contains(searchTerm) || 
+                        t.Composer.ToLower().Contains(searchTerm))
+            .ToList();
+
+        // Update the CollectionViewSource with the filtered results
+        tracksViewSource.Source = filteredTracks;
+    }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using PROG2500_A2_Chinook.Pages;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -44,6 +45,15 @@ namespace PROG2500_A2_Chinook
         private void TracksButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.NavigationService.Navigate(new Pages.TracksPage());
+        }
+        private void MusicCatalogButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.NavigationService.Navigate(new Pages.MusicCatalogPage());
+        }
+
+        private void CustomerOrdersButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.NavigationService.Navigate(new Pages.MusicCatalogPage());
         }
     }
 }

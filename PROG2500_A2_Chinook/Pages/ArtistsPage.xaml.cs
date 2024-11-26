@@ -38,5 +38,13 @@ namespace PROG2500_A2_Chinook.Pages
             artistsViewSource.Source = context.Artists.Local.ToObservableCollection();
 
         }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var searchTerm = SearchBox.Text.ToLower();
+            artistsViewSource.Source = context.Artists.Local
+                .Where(a => a.Name.ToLower().Contains(searchTerm))
+                .ToList();
+        }
     }
 }
