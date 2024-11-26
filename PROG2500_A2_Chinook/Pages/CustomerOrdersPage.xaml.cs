@@ -34,6 +34,7 @@ namespace PROG2500_A2_Chinook.Pages
             //Load data from the database
             _context.Customers.Load();
             _context.Invoices.Load();
+            _context.InvoiceLines.Load();
 
             customerOrdersViewSource.Source = _context.Customers.Local.ToObservableCollection();
         }
@@ -53,7 +54,13 @@ namespace PROG2500_A2_Chinook.Pages
                     State = customer.State,
                     Country = customer.Country,
                     Email = customer.Email,
-                    Invoices = customer.Invoices.ToList<Invoice>()
+                    Invoices = customer.Invoices.Select(invoice => new
+                    {
+                        invoice.InvoiceDate,
+                        invoice.Total,
+                        // Group InvoiceLines by InvoiceId and sum the Quantity
+                        TotalQuantity = invoice.InvoiceLines.Sum(line => line.Quantity)
+                    }).ToList()
                 };
 
             //Execture the query against the db and assign it as the data source for the listview

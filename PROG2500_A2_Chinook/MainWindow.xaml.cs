@@ -53,7 +53,7 @@ namespace PROG2500_A2_Chinook
 
         private void CustomerOrdersButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.NavigationService.Navigate(new Pages.MusicCatalogPage());
+            MainFrame.NavigationService.Navigate(new Pages.CustomerOrdersPage());
         }
     }
 }

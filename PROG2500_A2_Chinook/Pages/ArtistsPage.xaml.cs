@@ -28,23 +28,26 @@ namespace PROG2500_A2_Chinook.Pages
         {
             InitializeComponent();
 
-            // Tie the markup xaml viewsource object to the code behind viewsource object(C#)
             artistsViewSource = (CollectionViewSource)FindResource(nameof(artistsViewSource));
 
-            // Use the dbContext to tell EF to load the data we want to use on this page
             context.Artists.Load();
 
-            // Set the viewsource data source to use the employees data collection (dbset)
             artistsViewSource.Source = context.Artists.Local.ToObservableCollection();
 
         }
 
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var searchTerm = SearchBox.Text.ToLower();
-            artistsViewSource.Source = context.Artists.Local
-                .Where(a => a.Name.ToLower().Contains(searchTerm))
-                .ToList();
+            string searchText = textSearch.Text.Trim();
+
+            var query = from artist in context.Artists
+                        where artist.Name.Contains(searchText)
+                        orderby artist.ArtistId
+                        select artist;
+
+
+            artistsViewSource.Source = query.ToList();
+
         }
     }
 }

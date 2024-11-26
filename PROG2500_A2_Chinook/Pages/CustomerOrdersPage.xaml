@@ -50,20 +50,16 @@
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock>
                                                     <Run Text="Order Date: " />
-                                                    <Run Text="{Binding InvoiceDate, StringFormat={}{0:yyyy-MM-dd}}" />
+                                                    <Run Text="{Binding InvoiceDate,Mode=OneWay, StringFormat={}{0:yyyy-MM-dd}}" />
                                                     <Run Text=" Total: $" />
-                                                    <Run Text="{Binding Total, StringFormat={}{0:C}}" />
+                                                    <Run Text="{Binding Total,Mode=OneWay, StringFormat={}{0:C}}" />
                                                 </TextBlock>
-                                                <!-- Thrid-level listview is for the invoiceline -->
-                                                <ListView ItemsSource="{Binding InvoiceLines}">
-                                                    <ListView.ItemTemplate>
-                                                        <DataTemplate DataType="local:InvoiceLines">
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <TextBlock Text="{Binding Quantity}"></TextBlock>
-                                                            </StackPanel>
-                                                        </DataTemplate>
-                                                    </ListView.ItemTemplate>
-                                                </ListView>
+                                                <StackPanel Orientation="Horizontal">
+                                                <TextBlock>
+                                                    <Run Text=" Quantity:" />
+                                                    <Run Text="{Binding TotalQuantity, Mode=OneWay}"/>
+                                                </TextBlock>
+                                                </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>

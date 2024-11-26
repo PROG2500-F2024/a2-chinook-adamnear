@@ -38,18 +38,17 @@ namespace PROG2500_A2_Chinook.Pages
             tracksViewSource.Source = context.Tracks.Local.ToObservableCollection();
         }
 
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
-    {
-        var searchTerm = SearchBox.Text.ToLower();
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string searchText = textSearch.Text.Trim();
 
-        // Filter the tracks based on the search term
-        var filteredTracks = context.Tracks.Local
-            .Where(t => t.Name.ToLower().Contains(searchTerm) || 
-                        t.Composer.ToLower().Contains(searchTerm))
-            .ToList();
+            var query = from track in context.Tracks
+                        where track.Name.Contains(searchText)
+                        orderby track.TrackId
+                        select track;
 
-        // Update the CollectionViewSource with the filtered results
-        tracksViewSource.Source = filteredTracks;
-    }
+
+            tracksViewSource.Source = query.ToList();
+        }
     }
 }

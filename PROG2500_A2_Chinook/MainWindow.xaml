@@ -49,7 +49,7 @@
                         <Image Source="{StaticResource tracksImage}"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Music Catalog" Click="MusicCatalogButton_Click">
+                <MenuItem x:Name="musicCatalog" Header="_View Music Catalog" Click="MusicCatalogButton_Click">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource musicCatalogImage}"></Image>
                     </MenuItem.Icon>

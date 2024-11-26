@@ -39,12 +39,16 @@ namespace PROG2500_A2_Chinook.Pages
 
         }
 
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var searchTerm = SearchBox.Text.ToLower();
-            albumsViewSource.Source = context.Albums.Local
-                .Where(a => a.Title.ToLower().Contains(searchTerm))
-                .ToList();
+            string searchText = textSearch.Text.Trim();
+
+            var query = from album in context.Albums
+                        where album.Title.Contains(searchText)
+                        orderby album.ArtistId
+                        select album;
+
+            albumsViewSource.Source = query.ToList();
         }
     }
 }
